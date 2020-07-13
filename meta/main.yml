@@ -1,0 +1,25 @@
+galaxy_info:
+  author: Raman Antanevich
+  description: Install git on a Linux machine.
+  company: none
+  license: MIT
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: Debian
+    versions:
+    - 9
+    - 10
+  - name: EL
+    versions:
+    - 7
+  - name: Ubuntu
+    - bionic
+
+  galaxy_tags:
+    - git
+    - centos
+    - debian
+    - ubuntu
+
+dependencies: []
