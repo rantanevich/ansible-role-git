@@ -5,8 +5,13 @@
   tasks:
     - name: update apt cache on Debian distos
       block:
-        - name: install apt dependency for updating cache
+        - name: install apt dependency for updating cache (python 3)
+          apt: name=python3-apt state=present
+          when: ansible_python.version.major == 3
+
+        - name: install apt dependency for updating cache (python 2)
           apt: name=python-apt state=present
+          when: ansible_python.version.major == 2
 
         - name: update apt cache
           apt: update_cache=yes cache_valid_time=86400
