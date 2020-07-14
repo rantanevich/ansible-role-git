@@ -8,7 +8,7 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: "ansible-role-git_${image:-centos7}-${tag:-latest}"
+  - name: "ansible-role-git_${image:-centos7}"
     image: "geerlingguy/docker-${image:-centos7}-ansible:${tag:-latest}"
     privileged: true
     volumes:

@@ -1,10 +1,15 @@
 ---
 # This is an example playbook to execute Ansible tests.
 - name: Verify
+  gather_facts: no
   hosts: all
 
   tasks:
-  # The task will be failed if git isn't installed
-  - name: check git version
-    command: git --version
+  - name: get information about the repository via git
+    git:
+      repo: https://github.com/torvalds/linux.git
+      dest: /tmp/linux
+      clone: no
+      update: no
+      version: v5.7
     changed_when: false
