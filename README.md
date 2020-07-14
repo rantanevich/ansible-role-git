@@ -1,5 +1,6 @@
 Ansible Role: Git
 =========
+[![Build Status](https://travis-ci.org/rantanevich/ansible-role-git.svg?branch=master)](https://travis-ci.org/rantanevich/ansible-role-git)
 
 Install git on any CentOS/Debian/Ubuntu Linux distribution.
 
