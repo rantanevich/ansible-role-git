@@ -1,0 +1,13 @@
+---
+- name: Prepare
+  hosts: all
+
+  tasks:
+    - name: update apt cache on Debian distos
+      block:
+        - name: install apt dependency for updating cache
+          apt: name=python-apt state=present
+
+        - name: update apt cache
+          apt: update_cache=yes cache_valid_time=86400
+      when: ansible_os_family == "Debian"

@@ -1,0 +1,10 @@
+---
+# This is an example playbook to execute Ansible tests.
+- name: Verify
+  hosts: all
+
+  tasks:
+  # The task will be failed if git isn't installed
+  - name: check git version
+    command: git --version
+    changed_when: false

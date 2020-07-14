@@ -1,0 +1,22 @@
+---
+sudo: required
+language: python
+services: docker
+
+env:
+  matrix:
+    - image="debian9" tag="latest"
+    - image="debian10" tag="latest"
+    - image="centos7" tag="latest"
+    - image="centos8" tag="latest"
+    - image="ubuntu1804" tag="latest"
+    - image="ubuntu2004" tag="latest"
+
+before_install:
+  - sudo apt-get -qq update
+
+install:
+  - python3 -m pip install molecule yamllint ansible-lint docker
+
+script:
+  - molecule test

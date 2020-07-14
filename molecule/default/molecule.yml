@@ -1,0 +1,20 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+platforms:
+  - name: "ansible-role-git_${image:-centos7}-${tag:-latest}"
+    image: "geerlingguy/docker-${image:-centos7}-ansible:${tag:-latest}"
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

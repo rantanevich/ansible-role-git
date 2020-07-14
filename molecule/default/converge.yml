@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+
+  tasks:
+    - name: include ansible-role-git
+      include_role:
+        name: ansible-role-git
